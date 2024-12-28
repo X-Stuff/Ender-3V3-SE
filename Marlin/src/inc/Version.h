@@ -26,10 +26,10 @@
  */
 #ifndef SHORT_BUILD_VERSION
   #if ENABLED(HIGH_SPEED_1)
-    #define SHORT_BUILD_VERSION "V1.0.6"
+    #define SHORT_BUILD_VERSION "V1.0.6.8"
   #else
     #define SHORT_BUILD_VERSION "Ender-3V3 SE_Ten_P1T14T" // GD32F303RET6 + Multilanguage 1.Chinese 2.English 3.German 4.Russian 5.French 6.Turkish 7.Spanish 8.Italian 9.Portuguese
-  #endif  
+  #endif
 #endif
 
 /**
@@ -86,7 +86,7 @@
  * providing the source code to your customers.)
  */
 #ifndef SOURCE_CODE_URL
-  #define SOURCE_CODE_URL "github.com/MarlinFirmware/Marlin"
+  #define SOURCE_CODE_URL "github.com/X-Stuff/Ender-3V3-SE"
 #endif
 
 /**

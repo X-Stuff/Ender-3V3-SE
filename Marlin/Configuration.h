@@ -115,7 +115,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 1000000
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
 /**
@@ -165,9 +165,9 @@
 #endif
 #define USE_BEEPER 1
 #define PLATFORM_OFFSET         1 //1:结构件背板2.5mm，固件需要做偏移适配 0：结构件背板没有做偏移
-#define HIGH_SPEED              1 //高速模式 1：打开高速模式 150mm/s; 0：低速模式 80mm/s 
-#define HIGH_SPEED_1            1 //只开关高速的宏  
-#define SHOW_GRID_VALUES        1 //1 显示自动调平网格值  0 不显示自动调平网格值 
+#define HIGH_SPEED              1 //高速模式 1：打开高速模式 150mm/s; 0：低速模式 80mm/s
+#define HIGH_SPEED_1            1 //只开关高速的宏
+#define SHOW_GRID_VALUES        1 //1 显示自动调平网格值  0 不显示自动调平网格值
 #define K8_EXTRUDER             0 //1 是K8挤出机   0 是精灵挤出机
 #define USER_LEVEL_CHECK        1 // 调平校准使能
 #define WUHAN_CHENGE_PLATFORM   1 // 武汉改平台板  20230913_Rock
@@ -888,15 +888,15 @@
 #if ENABLED(HIGH_SPEED_1)
 // #define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 3000 }
 #define DEFAULT_MAX_ACCELERATION      { 4000, 4000, 4000, 4000 }
-#else 
+#else
 #define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 3000 }
 // #define DEFAULT_MAX_ACCELERATION      { 1500, 1500, 100, 1500 }
 #endif
 #define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
-#if ENABLED(HIGH_SPEED_1) 
+#if ENABLED(HIGH_SPEED_1)
     #define MAX_ACCEL_EDIT_VALUES       { 8000, 8000, 200, 8000 } // ...or, set your own edit limits
-  #else 
+  #else
    #define MAX_ACCEL_EDIT_VALUES       { 3000, 3000, 100, 3000 } // ...or, set your own edit limits
   #endif
 #endif
@@ -935,12 +935,12 @@
  #define DEFAULT_XJERK  12.0  //解决边角庞大问题 8--》12
   #define DEFAULT_YJERK 12.0
   #define DEFAULT_ZJERK 0.8
-  
+
 #else
-  #define DEFAULT_XJERK 5.0  
+  #define DEFAULT_XJERK 5.0
   #define DEFAULT_YJERK 5.0
   #define DEFAULT_ZJERK 0.4
-  
+
 #endif
 
   //#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
@@ -1149,13 +1149,13 @@
 #else  //精灵挤出机传功比
   #define NOZZLE_TO_PROBE_OFFSET { -24.25, -15, 0 }  //prime 2023.05.28 朱工提供
 #endif
-   
-#else 
+
+#else
  #define NOZZLE_TO_PROBE_OFFSET { -31.75, -14.69, 0}  //prime 2023.02.10 朱工提供
 #endif
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 3 
+#define PROBING_MARGIN 3
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (160*60)//(80*60)
@@ -1344,12 +1344,12 @@
 #if ENABLED(PLATFORM_OFFSET)  //需要平台偏移
   // #define X_MIN_POS -10//-4        // +向左偏移 -向右偏移
   // #define Y_MIN_POS -22       //平台向前移动 rock_20220927  - 向前，+向后 2.5
-  
+
   #if ENABLED(WUHAN_CHENGE_PLATFORM)  //武汉改结构
     #define X_MIN_POS    -13    //平台向左移动
     #define  Y_MIN_POS   -15
-  #else 
-    #define X_MIN_POS -11    //平台向左移动 
+  #else
+    #define X_MIN_POS -11    //平台向左移动
     #define  Y_MIN_POS   -18 //平台向前移动 rock_20220927
   #endif
 #else   //
@@ -1363,7 +1363,7 @@
   #define X_MAX_POS X_BED_SIZE + 5
 #endif
 #define Y_MAX_POS Y_BED_SIZE + 7
-#define Z_MAX_POS 250  //由于切片软件没有限制250mm的高度，因此临时加高5mm  Rock——20230105  
+#define Z_MAX_POS 250  //由于切片软件没有限制250mm的高度，因此临时加高5mm  Rock——20230105
 
 /**
  * Software Endstops
